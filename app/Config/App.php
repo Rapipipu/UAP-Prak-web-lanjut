@@ -134,7 +134,7 @@ class App extends BaseConfig
      * and the HTTP Strict Transport Security header will be set.
      */
     public bool $forceGlobalSecureRequests = false;
-
+    
     /**
      * --------------------------------------------------------------------------
      * Reverse Proxy IPs
