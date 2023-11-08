@@ -22,6 +22,10 @@ class Home extends BaseController
     {
         return view('dashboard/src/layoutpegawai');
     }
+    public function pelanggan(): string
+    {
+        return view('dashboard/src/layoutpelanggan');
+    }
     
 }
 

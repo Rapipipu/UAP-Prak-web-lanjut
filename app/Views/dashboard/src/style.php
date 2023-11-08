@@ -7,6 +7,14 @@
         margin:0;
         
     }
+    .btn-1{
+        background:#9F481B;
+        font-weight:500;
+        text-decoration:none;
+        padding:5px 10px;
+        color:white;
+        border-radius:10px;
+    }
     .btn-custom a{
         background:#9F481B;
         font-weight:500;
