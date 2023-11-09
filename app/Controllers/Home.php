@@ -26,6 +26,10 @@ class Home extends BaseController
     {
         return view('dashboard/src/layoutpelanggan');
     }
+    public function admin(): string
+    {
+        return view('dashboard/src/layoutadmin');
+    }
     
 }
 
