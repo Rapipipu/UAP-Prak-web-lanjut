@@ -13,4 +13,19 @@ class Home extends BaseController
     {
         return view('register');
     }
+
+    public function dashboard(): string
+    {
+        return view('dashboard/src/layout');
+    }
+    public function pegawai(): string
+    {
+        return view('dashboard/src/layoutpegawai');
+    }
+    public function pelanggan(): string
+    {
+        return view('dashboard/src/layoutpelanggan');
+    }
+    
 }
+
