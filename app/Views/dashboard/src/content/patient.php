@@ -16,7 +16,7 @@
       <td>Anggun</td>
       <td>30</td>
       <td>087766554433</td>
-      <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td>
+      <!-- <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td> -->
     </tr>
     <tr>
       <th scope="row">2</th>
