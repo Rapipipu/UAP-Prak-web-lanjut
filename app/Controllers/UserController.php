@@ -8,6 +8,11 @@ class UserController extends BaseController
 {
     public function login()
     {
-        return view('login_user');
+        return view('login');
+    }
+
+    public function register()
+    {
+        return view('register');
     }
 }

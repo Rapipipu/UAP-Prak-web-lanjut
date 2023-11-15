@@ -37,4 +37,11 @@ class ReservasiModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getReservasi(){
+        return $this->select('layanan.layanan, user.username, jadwalpraktik.jam, reservasi.*')
+        ->join('jadwalpraktik', 'jadwalpraktik.id=reservasi.id_jadwal')
+        ->join('layanan', 'layanan.id=reservasi.id_layanan')
+        ->join('user', 'user.id=reservasi.id_user')->findAll();    
+    }
 }

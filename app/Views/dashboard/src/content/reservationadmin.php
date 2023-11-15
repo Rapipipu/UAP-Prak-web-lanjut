@@ -12,22 +12,20 @@
     </tr>
   </thead>
   <tbody>
+  <?php
+    foreach ($reservasii as $reservasi){
+    ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Rafi</td>
-      <td>Pijat</td>
-      <td>12.30</td>
-      <td>02-09-2003</td>
-      <td class="btn-custom"><a href="#" >selesai</a></td>
+      <th><?=$reservasi['id']?></th>
+      <td><?=$reservasi['username']?></td>
+      <td><?=$reservasi['layanan']?></td>
+      <td><?=$reservasi['jam']?></td>
+      <td><?=$reservasi['tanggal']?></td>
+      <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      
-    </tr>
+    <?php
+    }
+    ?>
   </tbody>
 </table>
 </div>

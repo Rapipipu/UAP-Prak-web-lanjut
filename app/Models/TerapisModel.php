@@ -37,4 +37,8 @@ class TerapisModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getTerapis(){
+        return $this->findAll();    
+    }
 }

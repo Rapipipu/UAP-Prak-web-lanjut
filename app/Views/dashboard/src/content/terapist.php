@@ -11,21 +11,19 @@
     </tr>
   </thead>
   <tbody>
+  <?php
+    foreach ($terapiss as $terapis){
+    ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Anggun</td>
-      <td>30</td>
-      <td>087766554433</td>
-      <!-- <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td> -->
+      <th><?=$terapis['id']?></th>
+      <td><?=$terapis['nama']?></td>
+      <td><?=$terapis['umur']?></td>
+      <td><?=$terapis['telefon']?></td>
+      <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-     
-    </tr>
+    <?php
+    }
+    ?>
   </tbody>
 </table>
 </div>
