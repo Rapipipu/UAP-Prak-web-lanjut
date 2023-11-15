@@ -10,20 +10,18 @@
     </tr>
   </thead>
   <tbody>
+  <?php
+    foreach ($jadwall as $jadwal){
+    ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Anggun</td>
-      <td>12.00</td>
+      <th><?=$jadwal['id']?></th>
+      <td><?=$jadwal['nama']?></td>
+      <td><?=$jadwal['jam']?></td>
       <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-     
-    </tr>
+    <?php
+    }
+    ?>
   </tbody>
 </table>
 </div>

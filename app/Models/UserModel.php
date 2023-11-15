@@ -37,4 +37,13 @@ class UserModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getPegawai(){
+        return $this->where('role', 'pegawai')->findAll();
+    }
+
+    public function getPasien(){
+        return $this->where('role', 'pelanggan')->findAll();
+    }
 }
+

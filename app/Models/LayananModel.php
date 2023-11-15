@@ -37,4 +37,8 @@ class LayananModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getLayanan(){
+        return $this->findAll();    
+    }
 }
