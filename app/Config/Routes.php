@@ -1,6 +1,4 @@
-
-
-\<?php
+<?php
 
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\Home;
