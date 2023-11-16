@@ -23,6 +23,7 @@
       <td><?=$pasien['umur']?></td>
       <td><?=$pasien['telefon']?></td>
       <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td>
+      <td class="btn-custom"><a href="#" >Add</a><a href="#" >Tambah</a></td>
     </tr>
     <?php
     }
