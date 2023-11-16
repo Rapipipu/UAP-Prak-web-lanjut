@@ -1,6 +1,4 @@
-
-
-\<?php
+<?php
 
 use CodeIgniter\Router\RouteCollection;
 use App\Controllers\Home;
@@ -39,3 +37,16 @@ $routes->get('/pegawai/jadwal', [JadwalController::class, 'indexPegawai']);
 $routes->get('/pelanggan/reservasi', [ReservasiController::class, 'create']);
 $routes->get('/pelanggan/layanan', [LayananController::class, 'indexPelanggan']);
 $routes->get('/pelanggan/jadwal', [JadwalController::class, 'indexPelanggan']);
+
+//$routes->get('/terapis/(:any)/edit', 'TerapisController::editTerapis/$1');
+
+
+    // Other routes...
+
+    // Add this route for displaying the edit page
+    $routes->get('terapis/(:any)/edit', 'TerapisController::editTerapis/$1');
+
+    // Add this route for handling the update process
+    $routes->put('terapis/(:any)', 'TerapisController::updateTerapis/$1');
+    $routes->get('/terapis/create', 'TerapisController::createTerapis');
+    $routes->post('/terapis/create', 'TerapisController::createTerapis');
