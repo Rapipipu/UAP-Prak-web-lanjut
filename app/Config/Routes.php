@@ -45,3 +45,10 @@ $routes->post('/admin/layanan/create', [LayananController::class, 'createAdmin']
 $routes->put('/admin/layanan/edit/(:any)',  [LayananController::class, 'updateLayanan']);
 $routes->get('/admin/layanan/edit/(:any)', [LayananController::class, 'editLayanan']);
 $routes->get('/admin/layanan/delete/(:any)', [LayananController::class, 'deleteLayanan']);
+
+//EDIT CREATE SERVICE PEGAWAI
+$routes->get('/pegawai/layanan/create', [LayananController::class, 'createPegawai']);
+$routes->post('/pegawai/layanan/create', [LayananController::class, 'createPegawai']);
+$routes->put('/pegawai/layanan/edit/(:any)',  [LayananController::class, 'updateLayananPegawai']);
+$routes->get('/pegawai/layanan/edit/(:any)', [LayananController::class, 'editLayananPegawai']);
+$routes->get('/pegawai/layanan/delete/(:any)', [LayananController::class, 'deleteLayananPegawai']);

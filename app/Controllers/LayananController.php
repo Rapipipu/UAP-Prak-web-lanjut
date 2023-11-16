@@ -103,11 +103,90 @@ class LayananController extends BaseController
     public function indexPegawai()
     {
         $data = [
-            'layanann' => $this->layananModel->getLayanan(),
+            'layanan' => $this->layananModel->getLayanan(),
         ];
-
+       // dd($data);
         return view('pegawai_service', $data);
     }
+
+    public function createPegawai()
+    {
+        if ($this->request->getMethod() === 'post') {
+            
+            $validation = \Config\Services::validation();
+            $validation->setRules([
+                'service' => 'required',
+                'price' => 'required',
+            ]);
+
+            if (!$validation->withRequest($this->request)->run()) {
+                return redirect()->to('/pegawai/layanan/create')->withInput()->with('errors', $validation->getErrors());
+            }
+
+            $data = [
+                'layanan' => $this->request->getPost('service'),
+                'harga' => $this->request->getPost('price'),
+            ];
+
+           
+            $layananModel = new LayananModel(); // Adjust based on your model name
+            $layananModel->insert($data);
+
+            // Redirect to the therapist list page or wherever you want to go after creating
+            return redirect()->to('/pegawai/layanan')->with('success', 'Therapist created successfully');
+        }
+
+        return view('pegawai_service_create');
+    }
+    public function editLayananPegawai($id)
+    {   
+        $layananModel = new LayananModel(); 
+        $layanan = $layananModel->find($id);
+
+        
+        
+
+        return view('pegawai_service_edit',['layanan'=>$layanan]);
+    }
+
+    public function deleteLayananPegawai($id)
+    {   
+        $layananModel = new LayananModel(); 
+    
+        $result = $this->layananModel->deleteLayanan($id);
+        if ($result) {
+        
+        return redirect()->to('/pegawai/layanan')->with('success', 'Service updated successfully');
+        }
+        return redirect()->to('/pegawai/layanan')->with('success', 'Service updated successfully');
+    }
+
+    public function updateLayananPegawai($id)
+    {
+        $layananModel = new LayananModel(); 
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'service' => 'required',
+            'price' => 'required',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->to('/pegawai/layanan/edit/' . $id )->withInput()->with('errors', $validation->getErrors());
+        }
+
+       
+        $data = [
+            'layanan' => $this->request->getPost('service'),
+            'harga' => $this->request->getPost('price'),
+        ];
+    
+        $result = $this->layananModel->updateLayanan($data, $id);
+        if ($result) {
+        
+        return redirect()->to('/pegawai/layanan')->with('success', 'Service updated successfully');
+        }
+    }
+
 
     public function indexPelanggan()
     {
