@@ -42,6 +42,14 @@ $routes->get('/pelanggan/layanan', [LayananController::class, 'indexPelanggan'])
 $routes->get('/pelanggan/jadwal', [JadwalController::class, 'indexPelanggan']);
 
 
+//EDIT CREATE PATIENT ADMIN
+$routes->get('/admin/pasien/create', [PasienController::class, 'createPasien']);
+$routes->post('/admin/pasien/create', [PasienController::class, 'createPasien']);
+$routes->put('/admin/pasien/edit/(:any)',  [PasienController::class, 'updatePasien']);
+$routes->get('/admin/pasien/edit/(:any)', [PasienController::class, 'editPasien']);
+$routes->get('/admin/pasien/delete/(:any)', [PasienController::class, 'deletePasien']);
+=======
+
 //EDIT CREATE SERVICE ADMIN
 $routes->get('/admin/layanan/create', [LayananController::class, 'createAdmin']);
 $routes->post('/admin/layanan/create', [LayananController::class, 'createAdmin']);
@@ -68,4 +76,5 @@ $routes->get('/pegawai/layanan/delete/(:any)', [LayananController::class, 'delet
     $routes->put('terapis/(:any)', 'TerapisController::updateTerapis/$1');
     $routes->get('/terapis/create', 'TerapisController::createTerapis');
     $routes->post('/terapis/create', 'TerapisController::createTerapis');
+
 
