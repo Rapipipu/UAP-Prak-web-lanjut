@@ -39,3 +39,10 @@ $routes->get('/pegawai/jadwal', [JadwalController::class, 'indexPegawai']);
 $routes->get('/pelanggan/reservasi', [ReservasiController::class, 'create']);
 $routes->get('/pelanggan/layanan', [LayananController::class, 'indexPelanggan']);
 $routes->get('/pelanggan/jadwal', [JadwalController::class, 'indexPelanggan']);
+
+//EDIT CREATE PATIENT ADMIN
+$routes->get('/admin/pasien/create', [PasienController::class, 'createPasien']);
+$routes->post('/admin/pasien/create', [PasienController::class, 'createPasien']);
+$routes->put('/admin/pasien/edit/(:any)',  [PasienController::class, 'updatePasien']);
+$routes->get('/admin/pasien/edit/(:any)', [PasienController::class, 'editPasien']);
+$routes->get('/admin/pasien/delete/(:any)', [PasienController::class, 'deletePasien']);
