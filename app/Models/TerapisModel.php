@@ -41,4 +41,9 @@ class TerapisModel extends Model
     public function getTerapis(){
         return $this->findAll();    
     }
+
+public function updateTerapis($data, $id)
+{
+    return $this->update($id, $data);
+}
 }
