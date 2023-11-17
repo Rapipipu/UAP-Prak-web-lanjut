@@ -1,8 +1,11 @@
-<?= $this->extend('layouts/apppegawai')?>
+<?= $this->extend('layouts/appadmin')?>
 
 <?= $this->section('content')?>
 <section>
-    <div class="d-flex" style="position:fixed;top:10%;width:60%;left:30%;background:white;padding:50px;border-radius:20px;">
+
+    <div  style="position:fixed;top:10%;width:60%;left:30%;background:white;padding:50px;border-radius:20px;">
+    <a style="width: 10%;" href="<?= base_url('terapis/create') ?>" class="btn btn-primary">Add</a>
+
     <table class="table table-borderless table-responsive-xl">
   <thead>
     <tr>
@@ -20,7 +23,10 @@
       <th><?=$terapis['id']?></th>
       <td><?=$terapis['nama']?></td>
       <td><?=$terapis['umur']?></td>
-      <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td>
+      <td class="btn-custom">
+      <a href="<?= base_url('terapis/' . $terapis['id'] . '/edit') ?>">Edit</a>
+      <a href="#" >Delete</a>
+      </td>
     </tr>
     <?php
     }
