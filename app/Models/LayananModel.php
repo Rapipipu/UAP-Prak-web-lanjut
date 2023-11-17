@@ -41,4 +41,13 @@ class LayananModel extends Model
     public function getLayanan(){
         return $this->findAll();    
     }
+   
+    public function updateLayanan($data, $id)
+{
+    return $this->update($id, $data);
+}
+public function deleteLayanan($id)
+{
+    return $this->delete( $id);
+}
 }

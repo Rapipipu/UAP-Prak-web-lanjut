@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 use CodeIgniter\Router\RouteCollection;
@@ -26,7 +29,7 @@ $routes->get('/admin/pasien', [PasienController::class, 'index']);
 $routes->get('/admin/terapis', [TerapisController::class, 'index']);
 $routes->get('/admin/jadwal', [JadwalController::class, 'index']);
 
-$routes->get('/pegawai/dashboard', [DashboardController::class, 'indexPegawai']);
+$routes->get('/pegawai/dashboard', 'DashboardController::indexPegawai');
 $routes->get('/pegawai/layanan', [LayananController::class, 'indexPegawai']);
 $routes->get('/pegawai/dashboard', [DashboardController::class, 'indexPegawai']);
 $routes->get('/pegawai/reservasi', [ReservasiController::class, 'indexPegawai']);
@@ -37,6 +40,21 @@ $routes->get('/pegawai/jadwal', [JadwalController::class, 'indexPegawai']);
 $routes->get('/pelanggan/reservasi', [ReservasiController::class, 'create']);
 $routes->get('/pelanggan/layanan', [LayananController::class, 'indexPelanggan']);
 $routes->get('/pelanggan/jadwal', [JadwalController::class, 'indexPelanggan']);
+
+
+//EDIT CREATE SERVICE ADMIN
+$routes->get('/admin/layanan/create', [LayananController::class, 'createAdmin']);
+$routes->post('/admin/layanan/create', [LayananController::class, 'createAdmin']);
+$routes->put('/admin/layanan/edit/(:any)',  [LayananController::class, 'updateLayanan']);
+$routes->get('/admin/layanan/edit/(:any)', [LayananController::class, 'editLayanan']);
+$routes->get('/admin/layanan/delete/(:any)', [LayananController::class, 'deleteLayanan']);
+
+//EDIT CREATE SERVICE PEGAWAI
+$routes->get('/pegawai/layanan/create', [LayananController::class, 'createPegawai']);
+$routes->post('/pegawai/layanan/create', [LayananController::class, 'createPegawai']);
+$routes->put('/pegawai/layanan/edit/(:any)',  [LayananController::class, 'updateLayananPegawai']);
+$routes->get('/pegawai/layanan/edit/(:any)', [LayananController::class, 'editLayananPegawai']);
+$routes->get('/pegawai/layanan/delete/(:any)', [LayananController::class, 'deleteLayananPegawai']);
 
 //$routes->get('/terapis/(:any)/edit', 'TerapisController::editTerapis/$1');
 
@@ -50,3 +68,4 @@ $routes->get('/pelanggan/jadwal', [JadwalController::class, 'indexPelanggan']);
     $routes->put('terapis/(:any)', 'TerapisController::updateTerapis/$1');
     $routes->get('/terapis/create', 'TerapisController::createTerapis');
     $routes->post('/terapis/create', 'TerapisController::createTerapis');
+
