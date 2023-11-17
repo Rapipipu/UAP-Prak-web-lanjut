@@ -1,4 +1,6 @@
 
+
+
 <?php
 
 use CodeIgniter\Router\RouteCollection;
@@ -39,6 +41,7 @@ $routes->get('/pelanggan/reservasi', [ReservasiController::class, 'create']);
 $routes->get('/pelanggan/layanan', [LayananController::class, 'indexPelanggan']);
 $routes->get('/pelanggan/jadwal', [JadwalController::class, 'indexPelanggan']);
 
+
 //EDIT CREATE SERVICE ADMIN
 $routes->get('/admin/layanan/create', [LayananController::class, 'createAdmin']);
 $routes->post('/admin/layanan/create', [LayananController::class, 'createAdmin']);
@@ -52,3 +55,17 @@ $routes->post('/pegawai/layanan/create', [LayananController::class, 'createPegaw
 $routes->put('/pegawai/layanan/edit/(:any)',  [LayananController::class, 'updateLayananPegawai']);
 $routes->get('/pegawai/layanan/edit/(:any)', [LayananController::class, 'editLayananPegawai']);
 $routes->get('/pegawai/layanan/delete/(:any)', [LayananController::class, 'deleteLayananPegawai']);
+
+//$routes->get('/terapis/(:any)/edit', 'TerapisController::editTerapis/$1');
+
+
+    // Other routes...
+
+    // Add this route for displaying the edit page
+    $routes->get('terapis/(:any)/edit', 'TerapisController::editTerapis/$1');
+
+    // Add this route for handling the update process
+    $routes->put('terapis/(:any)', 'TerapisController::updateTerapis/$1');
+    $routes->get('/terapis/create', 'TerapisController::createTerapis');
+    $routes->post('/terapis/create', 'TerapisController::createTerapis');
+
