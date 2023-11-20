@@ -9,8 +9,8 @@
 <body style="background-color:#9F481B;">
     <nav class="nav" style="margin-top:10px;">
         <a class="nav-link active" aria-current="page" href="#" style="color:white; font-size:25px; margin-left:70px;">ARX</a>
-        <a class="nav-link" href="#" style="color:white; font-size:15px; margin-left:120px; margin-top:10px;">Sign In</a>
-        <a class="nav-link" href="#" style="color:white; font-size:15px; margin-top:10px;">Sign Up</a>
+        <a class="nav-link" href="<?=base_url('/login')?>" style="color:white; font-size:15px; margin-left:120px; margin-top:10px;">Sign In</a>
+        <a class="nav-link" href="<?=base_url('/register')?>" style="color:white; font-size:15px; margin-top:10px;">Sign Up</a>
     </nav>
 
 
