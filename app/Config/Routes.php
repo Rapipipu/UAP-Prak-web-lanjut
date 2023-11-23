@@ -1,6 +1,3 @@
-
-
-
 <?php
 
 use CodeIgniter\Router\RouteCollection;
@@ -84,6 +81,12 @@ $routes->get('/pegawai', [PegawaiController::class, 'index']);
 $routes->get('/pegawai/delete/(:any)', [PegawaiController::class, 'deletePegawai']);
 $routes->get('/pegawai/turnpasien/(:any)', [PegawaiController::class, 'turnPasien']);
 
+
+
+    $routes->get('/pegawai/edit/(:any)', 'PegawaiController::editPegawai/$1');
+    $routes->post('/pegawai/edit/(:any)', 'PegawaiController::updatePegawai/$1');
+
+
 $routes->get('/jadwal', [JadwalController::class, 'index']);
 
 
@@ -141,5 +144,3 @@ $routes->get('/jadwal', [JadwalController::class, 'index']);
 //     $routes->put('terapis/(:any)', 'TerapisController::updateTerapis/$1');
 //     $routes->get('/terapis/create', 'TerapisController::createTerapis');
 //     $routes->post('/terapis/create', 'TerapisController::createTerapis');
-
-
