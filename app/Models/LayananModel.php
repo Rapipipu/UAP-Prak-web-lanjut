@@ -37,4 +37,26 @@ class LayananModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getLayanan($id=null){
+        if($id != null){
+
+            return $this->find($id);
+        }
+        return $this->findAll();      
+    }
+
+    public function saveLayanan($data){
+        $this->insert($data);
+    }
+   
+    public function updateLayanan($data, $id)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function deleteLayanan($id)
+    {
+         return $this->delete( $id);
+    }
 }

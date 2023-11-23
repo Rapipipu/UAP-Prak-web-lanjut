@@ -7,7 +7,7 @@
   <link rel="apple-touch-icon" sizes="76x76" href="../assets/img/apple-icon.png">
   <link rel="icon" type="image/png" href="../assets/img/favicon.png">
   <title>
-    Soft UI Dashboard by Creative Tim
+    Register
   </title>
   <!--     Fonts and icons     -->
   <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700" rel="stylesheet" />
@@ -31,42 +31,59 @@
         <div class="container-fluid" style="height:100vh; background-color: #9F481B;">
           <div class="row" >
             <div class="col-xl-4 col-lg-5 col-md-6 d-flex flex-column mx-auto">
-              <div class="card card-plain mt-8" style="background-color: white;">
+              <div class="card card-plain mt-5" style="background-color: white;">
                 <div class="card-header pb-0 text-left bg-transparent">
                   <h3 class="font-weight-bolder text-info text-gradient">Welcome to ARX</h3>
                   <h2 class="mb-0 #9F481B" >Sign Up</h2>
                 </div>
                 <div class="card-body">
-                  <form role="form">
-                    <label>Enter your username</label>
+                <?= view('Myth\Auth\Views\_message_block') ?>
+                <form action="<?= url_to('register') ?>" method="post">
+                    <?= csrf_field() ?>
+                    <label>Email</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Username" aria-label="Email" aria-describedby="email-addon">
+                      <input type="email" class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Username" aria-label="Email" aria-describedby="email-addon" name="email">
                     </div> 
-                    <label>Age</label>
+
+                    <label>Username</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Age" aria-label="Email" aria-describedby="email-addon">
-                    </div>
-                    <label>Contact Number</label>
-                    <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Contact Number" aria-label="Email" aria-describedby="email-addon">
-                    </div>
+                      <input type="text" class="form-control <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>" placeholder="Username" aria-label="Email" aria-describedby="email-addon" name="username">
+                    </div> 
+                    
                     <label>Enter your password</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon">
+                      <input type="password" class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
                     </div>
+
+                    <label>Confirm Password</label>
+                    <div class="mb-3">
+                      <input type="password" class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="pass_confirm">
+                    </div>
+
+                    <label>Enter your age</label>
+                    <div class="mb-3">
+                      <input type="text" class="form-control " placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="umur">
+                    </div>
+
+                    <label>Contact</label>
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="telefon">
+                    </div>
+
                     <!-- <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                       <label class="form-check-label" for="rememberMe">Remember me</label>
                     </div> -->
+
                     <div class="text-center">
-                      <button type="button" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign up</button>
+                      <button type="submit" class="btn bg-gradient-info w-100 mt-4 mb-0">Sign up</button>
                     </div>
                   </form>
                 </div>
                 <div class="card-footer text-center pt-0 px-lg-2 px-1">
                   <p class="mb-4 text-sm mx-auto">
                     Already have an account?
-                    <a href="javascript:;" class="text-info text-gradient font-weight-bold">Sign in</a>
+                    <a href="<?=base_url('/login')?>" class="text-info text-gradient font-weight-bold">Sign in</a>
                   </p>
                 </div>
               </div>

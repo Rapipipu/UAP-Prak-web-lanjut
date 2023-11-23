@@ -37,4 +37,27 @@ class TerapisModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+
+    public function getTerapis($id=null){
+        if($id != null){
+
+            return $this->find($id);
+        }
+        return $this->findAll();      
+    }
+
+    public function saveTerapis($data){
+        $this->insert($data);
+    }
+
+    public function updateTerapis($data, $id)
+    {
+        return $this->update($id, $data);
+    }
+
+    public function deleteTerapis($id)
+    {
+         return $this->delete( $id);
+    }
 }

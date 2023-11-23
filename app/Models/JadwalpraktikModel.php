@@ -37,4 +37,9 @@ class JadwalpraktikModel extends Model
     protected $afterFind      = [];
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
+
+    public function getJadwal(){
+        return $this->select('jadwalpraktik.*, terapis.*')
+        ->join('terapis', 'terapis.id=jadwalpraktik.id_terapis')->findAll();    
+    }
 }

@@ -38,10 +38,6 @@
 
   <?php //require_once './footer.php'; ?>
 
-  <!-- BEGIN: Vendor JS-->
-  <script src="/assets/vendors/js/vendors.min.js"></script>
-  <!-- BEGIN Vendor JS-->
-
 
   <?php //require_once './script.php' ?>
 

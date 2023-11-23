@@ -11,21 +11,18 @@
     </tr>
   </thead>
   <tbody>
+  <?php
+    foreach ($layanann as $layanan){
+    ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Totok Wajah</td>
-      
-      <td>50.000</td>
+      <th><?=$layanan['id']?></th>
+      <td><?=$layanan['layanan']?></td>
+      <td><?=$layanan['harga']?></td>
       <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      <td>Urut Seluruh Badan<td>
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-      <td>Refleksi<td>
-    </tr>
+    <?php
+    }
+    ?>
   </tbody>
 </table>
 </div>

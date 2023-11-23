@@ -11,21 +11,19 @@
     </tr>
   </thead>
   <tbody>
+  <?php
+    foreach ($pegawaii as $pegawai){
+    ?>
     <tr>
-      <th scope="row">1</th>
-      <td>Anggun</td>
-      <td>30</td>
-      <td>087766554433</td>
+      <th><?=$pegawai['id']?></th>
+      <td><?=$pegawai['username']?></td>
+      <td><?=$pegawai['umur']?></td>
+      <td><?=$pegawai['telefon']?></td>
       <td class="btn-custom"><a href="#" >Edit</a><a href="#" >Delete</a></td>
     </tr>
-    <tr>
-      <th scope="row">2</th>
-      
-    </tr>
-    <tr>
-      <th scope="row">3</th>
-     
-    </tr>
+    <?php
+    }
+    ?>
   </tbody>
 </table>
 </div>
