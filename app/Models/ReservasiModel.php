@@ -42,6 +42,17 @@ class ReservasiModel extends Model
         return $this->select('layanan.layanan, user.username, jadwalpraktik.jam, reservasi.*')
         ->join('jadwalpraktik', 'jadwalpraktik.id=reservasi.id_jadwal')
         ->join('layanan', 'layanan.id=reservasi.id_layanan')
-        ->join('user', 'user.id=reservasi.id_user')->findAll();    
+        ->join('user', 'user.id=reservasi.id_user')
+        ->where('status', 'berjalan')->findAll();    
+    }
+
+    public function cancelReservasi($id)
+    {
+         return $this->delete( $id);
+    }
+
+    public function completeReservasi($id)
+    {
+         return $this->set('status', 'selesai')->where('id', $id)->update();
     }
 }

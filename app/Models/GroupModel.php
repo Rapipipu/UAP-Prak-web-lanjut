@@ -4,18 +4,18 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class TerapisModel extends Model
+class GroupModel extends Model
 {
-    protected $table            = 'terapis';
+    protected $table            = 'auth_groups_users';
     protected $primaryKey       = 'id';
     protected $useAutoIncrement = true;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['nama', 'umur'];
+    protected $allowedFields    = ['group_id', 'user_id'];
 
     // Dates
-    protected $useTimestamps = true;
+    protected $useTimestamps = false;
     protected $dateFormat    = 'datetime';
     protected $createdField  = 'created_at';
     protected $updatedField  = 'updated_at';
@@ -38,26 +38,15 @@ class TerapisModel extends Model
     protected $beforeDelete   = [];
     protected $afterDelete    = [];
 
-
-    public function getTerapis($id=null){
-        if($id != null){
-
-            return $this->find($id);
-        }
-        return $this->findAll();      
+    public function turnAdmin($id){
+        return $this->set('group_id','1')->where('user_id',$id)->update();
     }
 
-    public function saveTerapis($data){
-        $this->insert($data);
+    public function turnPegawai($id){
+        $this->set('group_id','2')->where('user_id',$id)->update();
     }
 
-    public function updateTerapis($data, $id)
-    {
-        return $this->update($id, $data);
-    }
-
-    public function deleteTerapis($id)
-    {
-         return $this->delete( $id);
+    public function turnPasien($id){
+        $this->set('group_id','3')->where('user_id',$id)->update();
     }
 }

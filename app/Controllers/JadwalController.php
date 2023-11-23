@@ -20,7 +20,7 @@ class JadwalController extends BaseController
             'jadwall' => $this->jadwalpraktikModel->getJadwal(),
         ];
 
-        return view('admin_practice', $data);
+        return view('practice', $data);
     }
 
     public function indexPegawai()

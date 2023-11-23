@@ -4,6 +4,18 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
+    public function auth()
+    {
+        if(logged_in()){
+            if(in_groups('admin')){
+                return redirect()->to('/dashboard');
+            }elseif(in_groups('pegawai')){
+                return redirect()->to('/dashboard');
+            }elseif(in_groups('pelanggan')){
+                return redirect()->to('/reservasi/create');
+            }
+        }
+    }
     public function index()
     {
         return view('landing_page');
