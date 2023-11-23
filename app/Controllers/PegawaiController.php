@@ -3,22 +3,45 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
-use App\Models\UserModel;
+use App\Models\UsersModel;
+use App\Models\GroupModel;
 
 class PegawaiController extends BaseController
 {
-    public $userModel;
+    public $usersModel;
+    public $groupModel;
+
 
     public function __construct()
     {
-        $this->userModel = new UserModel();
+        $this->usersModel = new UsersModel();
+        $this->groupModel = new GroupModel();
     }
     public function index()
     {
         $data = [
-            'pegawaii' => $this->userModel->getPegawai(),
+            'pegawaii' => $this->usersModel->getPegawai(),
         ];
 
-        return view('admin_employee', $data);
+        return view('employee', $data);
+    }
+
+    public function turnPasien($id){
+        
+        $result = $this->groupModel->turnPasien($id);
+
+        if ($result) {
+        return redirect()->to('/employee');
+        }
+    }
+    
+    public function deletePegawai($id)
+    {   
+    
+        $result = $this->usersModel->deletePegawai($id);
+        if ($result) {
+
+        return redirect()->to('/pegawai')->with('success', 'Service updated successfully');
+        }
     }
 }

@@ -20,94 +20,88 @@ class TerapisController extends BaseController
             'terapiss' => $this->terapisModel->getTerapis(),
         ];
 
-        return view('admin_terapist', $data);
+        return view('terapist', $data);
     }
 
-    public function indexPegawai()
-    {
-        $data = [
-            'terapiss' => $this->terapisModel->getTerapis(),
-        ];
-
-        return view('pegawai_terapist', $data);
-    }
-
-    public function editTerapis($id)
+    public function edit($id)
     {
         // Load the model
-        $terapisModel = new TerapisModel(); // Adjust based on your model name
+        $terapis = $this->terapisModel->getTerapis($id);
 
-        // Get the therapist by ID from the database
-        $terapis = $terapisModel->find($id);
+        $data = [
+            'terapis' => $terapis,
+        ];
 
-        // Pass the therapist data to the view
-        return view('layouts/edit_terapis', ['terapis' => $terapis]);
+        return view('terapist_edit', $data);
     }
 
     public function updateTerapis($id)
     {
-        // Load the model
-        $terapisModel = new TerapisModel(); // Adjust based on your model name
-
-        // Validate form input, you may want to add more validation based on your requirements
         $validation = \Config\Services::validation();
         $validation->setRules([
             'nama' => 'required',
-            'umur' => 'required|numeric',
+            'umur' => 'required',
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
-            // Validation failed, return to the edit page with validation errors
-            return redirect()->to('/admin/terapis/' . $id . '/edit')->withInput()->with('errors', $validation->getErrors());
+            return redirect()->to('/layanan/edit/' . $id )->withInput()->with('errors', $validation->getErrors());
         }
 
-        // Get the updated data from the form
+       
         $data = [
             'nama' => $this->request->getPost('nama'),
             'umur' => $this->request->getPost('umur'),
         ];
-        // Update the therapist in the database
+    
         $result = $this->terapisModel->updateTerapis($data, $id);
         if ($result) {
-        // Redirect to the therapist list page or wherever you want to go after updating
-        return redirect()->to('/admin/terapis')->with('success', 'Therapist updated successfully');
+        
+        return redirect()->to('/terapis')->with('success', 'Service updated successfully');
         }
     }
 
-    public function createTerapis()
+    public function store()
     {
-        // If the form is submitted, process the data
-        if ($this->request->getMethod() === 'post') {
-            // Validate form input
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus di isi.'
+                ]
+            ],
+            'umur' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus di isi.',
+                ]
+            ]
+        ])) {
             $validation = \Config\Services::validation();
-            $validation->setRules([
-                'nama' => 'required',
-                'umur' => 'required|numeric',
-            ]);
-
-            if (!$validation->withRequest($this->request)->run()) {
-                // Validation failed, return to the create page with validation errors
-                return redirect()->to('/admin/terapis/create')->withInput()->with('errors', $validation->getErrors());
-            }
-
-            // Get the form data
-            $data = [
-                'nama' => $this->request->getPost('nama'),
-                'umur' => $this->request->getPost('umur'),
-            ];
-
-            // Insert the new therapist into the database
-            $terapisModel = new TerapisModel(); // Adjust based on your model name
-            $terapisModel->insert($data);
-
-            // Redirect to the therapist list page or wherever you want to go after creating
-            return redirect()->to('/admin/terapis')->with('success', 'Therapist created successfully');
+            return redirect()->to(base_url('/layanan/create'))->withInput()->with('validation', $validation);
         }
 
-        // If it's a GET request, display the form
-        return view('layouts/create_terapis');
+        $this->terapisModel->saveTerapis([
+            'nama' => $this->request->getVar('nama'),
+            'umur' => $this->request->getVar('umur'),
+        ]);
+
+        return redirect()->to(base_url('/terapis'));
     }
 
+    public function create(){
+
+        return view('terapist_create');
+    }
+
+    public function deleteTerapis($id)
+    {   
+    
+        $result = $this->terapisModel->deleteTerapis($id);
+        if ($result) {
+
+        return redirect()->to('/terapis')->with('success', 'Service updated successfully');
+        }
+    }
 }
 
 

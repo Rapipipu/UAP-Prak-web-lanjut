@@ -20,20 +20,32 @@ class ReservasiController extends BaseController
             'reservasii' => $this->reservasiModel->getReservasi(),
         ];
 
-        return view('admin_reservation', $data);
+        return view('reservation', $data);
     }
 
-    public function indexPegawai()
-    {
-        $data = [
-            'reservasii' => $this->reservasiModel->getReservasi(),
-        ];
-
-        return view('pegawai_reservation', $data);
-    }
 
     public function create()
     {
-        return view('pelanggan_reservation');
+        return view('reservation_create');
+    }
+
+    public function cancel($id)
+    {   
+    
+        $result = $this->reservasiModel->cancelReservasi($id);
+        if ($result) {
+
+        return redirect()->to('/reservasi')->with('success', 'Service updated successfully');
+        }
+    }
+
+    public function complete($id)
+    {   
+    
+        $result = $this->reservasiModel->completeReservasi($id);
+        if ($result) {
+
+        return redirect()->to('/reservasi')->with('success', 'Service updated successfully');
+        }
     }
 }
