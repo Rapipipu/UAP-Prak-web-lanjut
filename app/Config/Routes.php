@@ -87,6 +87,7 @@ $routes->get('/pegawai/turnpasien/(:any)', [PegawaiController::class, 'turnPasie
     $routes->post('/pegawai/edit/(:any)', 'PegawaiController::updatePegawai/$1');
 
 
+
 $routes->get('/jadwal', [JadwalController::class, 'index']);
 
 

@@ -167,7 +167,7 @@
   <?php endif ?>
 </div>
   <!-- BEGIN: Content-->
-  <div class="d-flex justify-content-center align-items-center" style="width:80vw;height:100vh;background:#9F481B;">
+  <div class="d-flex justify-content-center align-items-center" style="width:80vw;height:110vh;background:#9F481B;">
 
     <?= $this->renderSection('content') ?>
   </div>
