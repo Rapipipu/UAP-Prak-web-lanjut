@@ -40,4 +40,37 @@ class JadwalController extends BaseController
 
         return view('pelanggan_practice', $data);
     }
+
+    public function store()
+    {
+        if (!$this->validate([
+            'nama' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus di isi.'
+                ]
+            ],
+            'jam' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => '{field} harus di isi.',
+                ]
+            ]
+        ])) {
+            $validation = \Config\Services::validation();
+            return redirect()->to(base_url('/jadwal/create'))->withInput()->with('validation', $validation);
+        }
+
+        $this->JadwalpraktikModel->saveJadwal([
+            'nama' => $this->request->getVar('nama'),
+            'jam' => $this->request->getVar('jam'),
+        ]);
+
+        return redirect()->to(base_url('/practice'));
+    }
+
+    public function create(){
+
+        return view('jadwal_create');
+    }
 }

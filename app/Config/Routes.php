@@ -89,6 +89,8 @@ $routes->get('/pegawai/turnpasien/(:any)', [PegawaiController::class, 'turnPasie
 
 
 $routes->get('/jadwal', [JadwalController::class, 'index']);
+$routes->get('/jadwal/create', [JadwalController::class, 'create']);
+$routes->post('/jadwal/store', [JadwalController::class, 'store']);
 
 
 // $routes->get('/admin/dashboard', [DashboardController::class, 'index']);
