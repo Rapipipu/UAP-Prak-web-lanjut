@@ -11,13 +11,7 @@ class ReservasiSeeder extends Seeder
     {
         $reservasiModel = new ReservasiModel();
 
-        $reservasiModel->save([
-            'id_user' => 2,
-            'id_layanan' => 1,
-            'id_jadwal' => 1,
-            'tanggal' => '2023-08-12',
-            'status' => 'berjalan',
-        ]);
+       
         $reservasiModel->save([
             'id_user' => 2,
             'id_layanan' => 2,

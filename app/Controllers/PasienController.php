@@ -41,6 +41,7 @@ class PasienController extends BaseController
             'pasienn' => $this->usersModel->getPasien(),
         ];
 
+        // dd($data);
         return view('patient', $data);
     }
 
@@ -51,9 +52,9 @@ class PasienController extends BaseController
 
         // Get the therapist by ID from the database
         $user = $userModel->find($id);
-
+      //  dd($user);
         // Pass the therapist data to the view
-        return view('patient_edit', ['pasienn' => $user]);
+        return view('patient_edit', ['pasien' => $user]);
     }
 
     public function updatePasien($id)
@@ -61,24 +62,27 @@ class PasienController extends BaseController
         // Load the model
         $userModel = new UsersModel(); // Adjust based on your model name
 
-        // Validate form input, you may want to add more validation based on your requirements
         $validation = \Config\Services::validation();
         $validation->setRules([
-            'nama' => 'required',
+            'username' => 'required',
             'umur' => 'required|numeric',
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
             // Validation failed, return to the edit page with validation errors
-            return redirect()->to('/pasien/' . $id . '/edit')->withInput()->with('errors', $validation->getErrors());
+            return redirect()->to('/pasien/edit/'.$id)->withInput()->with('errors', $validation->getErrors());
         }
 
         // Get the updated data from the form
         $data = [
-            'nama' => $this->request->getPost('nama'),
+            'username' => $this->request->getPost('username'),
+            'email' => $this->request->getPost('email'),
+            'poin' => $this->request->getPost('poin'),
+            
             'umur' => $this->request->getPost('umur'),
             'telefon' => $this->request->getPost('telefon')
         ];
+       // dd($data);
         // Update the therapist in the database
         $result = $this->usersModel->updateTerapis($data, $id);
         if ($result) {

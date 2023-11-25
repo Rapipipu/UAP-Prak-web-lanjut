@@ -24,7 +24,7 @@
       <td><?=$pegawai['telefon']?></td>
       <?php if(in_groups('admin')): ?>
       <td class="btn-custom">
-        <a href="#" >Edit</a>
+        <a href="<?=base_url("/pegawai/edit/{$pegawai['id']}"); ?>">Edit</a>
         <a href="<?=base_url('/pegawai/delete/'.$pegawai['id'])?>" >Delete</a>
         <a href="<?=base_url('/pegawai/turnpasien/'.$pegawai['id'])?>" >Turn Patient</a>
       </td>

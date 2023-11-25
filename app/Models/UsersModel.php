@@ -66,6 +66,11 @@ class UsersModel extends Model
         ->where('group_id', '3')->countAllResults();  
     }
 
+    public function updateTerapis($data, $id)
+    {
+        return $this->update($id, $data);
+    }
+
     public function deletePasien($id)
     {
          return $this->delete( $id);
