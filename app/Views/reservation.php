@@ -27,6 +27,7 @@
       <td class="btn-custom">
         <a href="<?= base_url('/reservasi/cancel/'.$reservasi['id']) ?>" >Cancel</a>
         <a href="<?= base_url('/reservasi/complete/'.$reservasi['id']) ?>" >Complete</a>
+        <a target="blank" href="https://wa.me/<?=$reservasi['telefon']?>?text=Reservasi%20anda%20sudah%20dekat,%20tolong%20datang%20tepat%20waktu,%20terima%20kasih"><img width="25px" src="<?=base_url('/assets/img/WhatsApp.webp')?>"></a>
       </td>
     </tr>
     <?php

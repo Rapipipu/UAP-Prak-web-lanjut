@@ -70,6 +70,10 @@
                       <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="telefon">
                     </div>
 
+                    <div class="mb-3">
+                      <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="poin" value="0" hidden>
+                    </div>
+
                     <!-- <div class="form-check form-switch">
                       <input class="form-check-input" type="checkbox" id="rememberMe" checked="">
                       <label class="form-check-label" for="rememberMe">Remember me</label>

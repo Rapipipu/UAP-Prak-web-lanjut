@@ -39,11 +39,16 @@ class ReservasiModel extends Model
     protected $afterDelete    = [];
 
     public function getReservasi(){
-        return $this->select('layanan.layanan, user.username, jadwalpraktik.jam, reservasi.*')
+        return $this->select('layanan.layanan, users.username, users.telefon, jadwalpraktik.jam, reservasi.*')
         ->join('jadwalpraktik', 'jadwalpraktik.id=reservasi.id_jadwal')
         ->join('layanan', 'layanan.id=reservasi.id_layanan')
-        ->join('user', 'user.id=reservasi.id_user')
-        ->where('status', 'berjalan')->findAll();    
+        ->join('users', 'users.id=reservasi.id_user')
+        ->where('reservasi.status', 'berjalan')->findAll();    
+    }
+
+    public function saveReservasi($data)
+    {
+        $this->insert($data);
     }
 
     public function cancelReservasi($id)

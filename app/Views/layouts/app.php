@@ -15,6 +15,7 @@
     <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.3.1/dist/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <style>
         body{
             margin:0;
@@ -66,36 +67,36 @@
   <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center" id="menu">
             <li>
                 <a href="<?=base_url('/dashboard')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
-                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Dashboard</h4></span> </a>
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Dashboard</h4></span> </a>
             </li>
             <li>
                 <a href="<?=base_url('/reservasi')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
-                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Reservation</h4></span> </a>
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Reservation</h4></span> </a>
             </li>
             <li >
                 <a href="<?=base_url('/layanan')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline" ><h4 style="color:#9F481B; margin-top:40px;">Service</h4></span></a>
+                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline" ><h4 style="color:#9F481B; margin-top:35px;">Service</h4></span></a>
             </li>
             <li>
                 <a href="<?=base_url('/pegawai')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Employee</h4></span></a>
+                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Employee</h4></span></a>
             </li>
             <li>
                 <a href="<?=base_url('/pasien')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Patient</h4></span></a>
+                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Patient</h4></span></a>
             </li>
             <li>
                 <a href="<?=base_url('/terapis')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Terapist</h4></span> </a>
+                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Terapist</h4></span> </a>
             </li>
             <li>
                 <a href="<?=base_url('/jadwal')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Practice Schedule</h4></span> </a>
+                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Practice Schedule</h4></span> </a>
             </li>
             <li>
                 <form action="<?= url_to('logout') ?>">
                     <?= csrf_field() ?>
-                    <button type="submit" class="btn ms-1 d-none d-sm-inline" href="#"><h4 style="color:#9F481B; margin-top:40px;">Logout</h4></button>
+                    <button type="submit" class="btn ms-1 d-none d-sm-inline" href="#"><h4 style="color:#9F481B; margin-top:35px;">Logout</h4></button>
                 </form>
             </li>
             
@@ -108,32 +109,32 @@
   <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center" id="menu">
             <li>
                 <a href="<?=base_url('/dashboard')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
-                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Dashboard</h4></span> </a>
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Dashboard</h4></span> </a>
             </li>
             <li>
                 <a href="<?=base_url('/reservasi')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
-                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Reservation</h4></span> </a>
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Reservation</h4></span> </a>
             </li>
             <li >
                 <a href="<?=base_url('/layanan')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline" ><h4 style="color:#9F481B; margin-top:40px;">Service</h4></span></a>
+                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline" ><h4 style="color:#9F481B; margin-top:35px;">Service</h4></span></a>
             </li>
             <li>
                 <a href="<?=base_url('/pasien')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Patient</h4></span></a>
+                    <i class="fs-5 bi-grid"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Patient</h4></span></a>
             </li>
             <li>
                 <a href="<?=base_url('/terapis')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Terapist</h4></span> </a>
+                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Terapist</h4></span> </a>
             </li>
             <li>
                 <a href="<?=base_url('/jadwal')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Practice Schedule</h4></span> </a>
+                    <i class="fs-5 bi-people"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Practice Schedule</h4></span> </a>
             </li>
             <li>
                 <form action="<?= url_to('logout') ?>">
                     <?= csrf_field() ?>
-                    <button type="submit" class="btn ms-1 d-none d-sm-inline" href="#"><h4 style="color:#9F481B; margin-top:40px;">Logout</h4></button>
+                    <button type="submit" class="btn ms-1 d-none d-sm-inline" href="#"><h4 style="color:#9F481B; margin-top:35px;">Logout</h4></button>
                 </form>
             </li>
             
@@ -146,20 +147,20 @@
   <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center" id="menu">
             <li>
                 <a href="<?=base_url('/reservasi/create')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
-                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Reservation</h4></span> </a>
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Reservation</h4></span> </a>
             </li>
             <li>
                 <a href="<?=base_url('/layanan')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
-                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:40px;">Service</h4></span> </a>
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Service</h4></span> </a>
             </li>
             <li >
                 <a href="<?=base_url('/jadwal')?>" class="nav-link text-truncate">
-                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline" ><h4 style="color:#9F481B; margin-top:40px;">Practice Schedule</h4></span></a>
+                    <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline" ><h4 style="color:#9F481B; margin-top:35px;">Practice Schedule</h4></span></a>
             </li>
             <li>
                 <form action="<?= url_to('logout') ?>">
                     <?= csrf_field() ?>
-                    <button type="submit" class="btn ms-1 d-none d-sm-inline" href="#"><h4 style="color:#9F481B; margin-top:40px;">Logout</h4></button>
+                    <button type="submit" class="btn ms-1 d-none d-sm-inline" href="#"><h4 style="color:#9F481B; margin-top:35px;">Logout</h4></button>
                 </form>
             </li>
         </ul>

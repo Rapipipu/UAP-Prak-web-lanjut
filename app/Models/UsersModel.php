@@ -80,5 +80,10 @@ class UsersModel extends Model
     {
          return $this->delete( $id);
     }
+
+    public function tambahPoin($id, $data)
+    {
+        return $this->set('poin', $data)->where('id', $id)->update();
+    }
     
 }
