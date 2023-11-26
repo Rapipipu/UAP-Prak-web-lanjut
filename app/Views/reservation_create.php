@@ -8,19 +8,40 @@
     <div><h1>Reservation</h1></div>
    </div>
    <div class="form-container" style="margin-top:5%;"  >
-        <form>
+        <form action="<?=base_url('/reservasi/store')?>" method="post">
+
         <div class="form-group">
           <label for="service">Service</label>
-          <input type="text" class="form-control" id="service"  placeholder="">
+          <select class="form-select" aria-label="Default select example" name="layanan">
+            <option selected>Choose Service</option>
+            <?php
+            foreach ($layanann as $layanan){
+            ?>
+            <option value="<?=$layanan['id']?>"><?=$layanan['layanan']?></option>
+            <?php
+            }
+            ?>
+          </select>
         </div>
+
         <div class="form-group">
           <label for="schedule">Schedule</label>
-          <input type="text" class="form-control" id="schedule" placeholder="">
+          <select class="form-select" aria-label="Default select example" name="jadwal">
+            <option selected>Choose Practice Schedule</option>
+            <?php
+            foreach ($jadwall as $jadwal){
+            ?>
+            <option value="<?=$jadwal['id']?>"><?=$jadwal['jam']?></option>
+            <?php
+            }
+            ?>
+          </select>
         </div>
-        <div class="form-group">
-          <label for="date">Date</label>
-          <input type="date" class="form-control" id="date" placeholder="">
-        </div>
+
+
+        <input name="tanggal"type="date" class="form-control" id="date" value="<?=$tanggal?>" hidden>
+        <input name="status"type="text" class="form-control" id="date" value="berjalan" hidden>
+
         <button type="submit" class="btn btn-1 " style="margin-top:10%;width:100%;">Submit</button>
       </form>
    </div>

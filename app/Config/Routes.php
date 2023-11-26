@@ -51,6 +51,7 @@ $routes->get('/dashboard', [DashboardController::class, 'index']);
 
 $routes->get('/reservasi', [ReservasiController::class, 'index']);
 $routes->get('/reservasi/create', [ReservasiController::class, 'create']);
+$routes->post('/reservasi/store', [ReservasiController::class, 'store']);
 $routes->get('/reservasi/cancel/(:any)', [ReservasiController::class, 'cancel']);
 $routes->get('/reservasi/complete/(:any)', [ReservasiController::class, 'complete']);
 
@@ -78,15 +79,10 @@ $routes->put('/terapis/edit/(:any)', [TerapisController::class, 'updateTerapis']
 $routes->get('/terapis/delete/(:any)', [TerapisController::class, 'deleteTerapis']);
     
 $routes->get('/pegawai', [PegawaiController::class, 'index']);
+$routes->get('/pegawai/edit/(:any)', [PegawaiController::class, 'editPegawai']);
+$routes->post('/pegawai/edit/(:any)', [PegawaiController::class, 'updatePegawai']);
 $routes->get('/pegawai/delete/(:any)', [PegawaiController::class, 'deletePegawai']);
 $routes->get('/pegawai/turnpasien/(:any)', [PegawaiController::class, 'turnPasien']);
-
-
-
-    $routes->get('/pegawai/edit/(:any)', 'PegawaiController::editPegawai/$1');
-    $routes->post('/pegawai/edit/(:any)', 'PegawaiController::updatePegawai/$1');
-
-
 
 $routes->get('/jadwal', [JadwalController::class, 'index']);
 $routes->get('/jadwal/create', [JadwalController::class, 'create']);

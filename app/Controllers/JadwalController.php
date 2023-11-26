@@ -4,14 +4,17 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\JadwalpraktikModel;
+use App\Models\TerapisModel;
 
 class JadwalController extends BaseController
 {
     public $jadwalpraktikModel;
+    public $terapisModel;
 
     public function __construct()
     {
         $this->jadwalpraktikModel = new JadwalpraktikModel();
+        $this->terapisModel = new TerapisModel();
     }
 
     public function index()
@@ -23,23 +26,6 @@ class JadwalController extends BaseController
         return view('practice', $data);
     }
 
-    public function indexPegawai()
-    {
-        $data = [
-            'jadwall' => $this->jadwalpraktikModel->getJadwal(),
-        ];
-
-        return view('pegawai_practice', $data);
-    }
-
-    public function indexPelanggan()
-    {
-        $data = [
-            'jadwall' => $this->jadwalpraktikModel->getJadwal(),
-        ];
-
-        return view('pelanggan_practice', $data);
-    }
 
     public function store()
     {
@@ -61,7 +47,7 @@ class JadwalController extends BaseController
             return redirect()->to(base_url('/jadwal/create'))->withInput()->with('validation', $validation);
         }
 
-        $this->JadwalpraktikModel->saveJadwal([
+        $this->jadwalpraktikModel->saveJadwal([
             'nama' => $this->request->getVar('nama'),
             'jam' => $this->request->getVar('jam'),
         ]);
@@ -70,7 +56,11 @@ class JadwalController extends BaseController
     }
 
     public function create(){
+        
+        $data = [
+            'terapiss' => $this->terapisModel->getTerapis(),
+        ];
 
-        return view('jadwal_create');
+        return view('practice_create', $data);
     }
 }

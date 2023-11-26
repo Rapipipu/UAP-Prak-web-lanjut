@@ -53,7 +53,7 @@ class CreateReservasiTable extends Migration
             ]);
 
             $this->forge->addKey('id', true, true);
-            $this->forge->addForeignKey('id_user', 'user', 'id');
+            $this->forge->addForeignKey('id_user', 'users', 'id');
             $this->forge->addForeignKey('id_layanan', 'layanan', 'id');
             $this->forge->addForeignKey('id_jadwal', 'jadwalpraktik', 'id');
             $this->forge->createTable('reservasi');
@@ -64,3 +64,4 @@ class CreateReservasiTable extends Migration
         $this->forge->dropTable('reservasi', true);
     }
 }
+
