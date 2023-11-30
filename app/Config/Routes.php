@@ -87,6 +87,15 @@ $routes->get('/pegawai/turnpasien/(:any)', [PegawaiController::class, 'turnPasie
 $routes->get('/jadwal', [JadwalController::class, 'index']);
 $routes->get('/jadwal/create', [JadwalController::class, 'create']);
 $routes->post('/jadwal/store', [JadwalController::class, 'store']);
+$routes->group('jadwal', ['namespace' => 'App\Controllers'], function ($routes) {
+    $routes->get('create', 'JadwalController::create');
+    $routes->post('store', 'JadwalController::store');
+    $routes->get('edit/(:any)', 'JadwalController::edit/$1');
+    $routes->post('update/(:any)', 'JadwalController::update/$1');
+});
+$routes->get('practice', 'JadwalController::index');
+
+
 
 
 // $routes->get('/admin/dashboard', [DashboardController::class, 'index']);
