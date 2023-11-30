@@ -33,7 +33,7 @@
   </tbody>
 </table>
 <?php if(in_groups('admin') || in_groups('pegawai')) : ?>
-<a style="width: 10%;background:#9F481B;border-radius:15%;" href="<?= base_url('/jadwal/create') ?>" class="btn text-white" >Add</a>
+<a style="width: 7%;background:#9F481B;border-radius:15%;" href="<?= base_url('/jadwal/create') ?>" class="btn text-white" >Add</a>
 <?php endif; ?>
 </div>
 
