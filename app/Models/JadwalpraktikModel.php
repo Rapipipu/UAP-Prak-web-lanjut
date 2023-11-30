@@ -40,6 +40,10 @@ class JadwalpraktikModel extends Model
 
     public function getJadwal(){
         return $this->select('jadwalpraktik.*, terapis.*')
-        ->join('terapis', 'terapis.id=jadwalpraktik.id_terapis')->findAll();    
+        ->join('terapis', 'terapis.id=jadwalpraktik.id')->findAll();    
+    }
+    public function deleteJadwal($id)
+    {
+         return $this->delete( $id);
     }
 }

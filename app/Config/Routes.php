@@ -88,6 +88,7 @@ $routes->get('/jadwal', [JadwalController::class, 'index']);
 $routes->get('/jadwal/create', [JadwalController::class, 'create']);
 $routes->post('/jadwal/store', [JadwalController::class, 'store']);
 
+$routes->get('/jadwal/delete/(:any)', [JadwalController::class, 'delete']); //buatan juan
 
 // $routes->get('/admin/dashboard', [DashboardController::class, 'index']);
 // $routes->get('/admin/reservasi', [ReservasiController::class, 'index']);
