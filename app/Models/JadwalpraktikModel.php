@@ -42,4 +42,14 @@ class JadwalpraktikModel extends Model
         return $this->select('jadwalpraktik.*, terapis.*')
         ->join('terapis', 'terapis.id=jadwalpraktik.id_terapis')->findAll();    
     }
+    public function saveJadwal($data){
+        $this->insert($data);
+    }
+
+    public function updateJadwal($data, $id)
+    {
+        return $this->update($id, $data);
+    }
+    
+
 }
