@@ -97,6 +97,7 @@ $routes->get('practice', 'JadwalController::index');
 
 
 
+$routes->get('/jadwal/delete/(:any)', [JadwalController::class, 'delete']); //buatan juan
 
 // $routes->get('/admin/dashboard', [DashboardController::class, 'index']);
 // $routes->get('/admin/reservasi', [ReservasiController::class, 'index']);

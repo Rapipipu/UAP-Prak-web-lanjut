@@ -22,7 +22,7 @@ class JadwalController extends BaseController
         $data = [
             'jadwall' => $this->jadwalpraktikModel->getJadwal(),
         ];
-
+       // dd($data);
         return view('practice', $data);
     }
 
@@ -57,6 +57,13 @@ class JadwalController extends BaseController
         return view('practice_create', $data);
     }
 
+    public function delete($id){
+        //dd($id);
+        $this->jadwalpraktikModel->deleteJadwal($id);
+        return redirect()->to(base_url('/jadwal'));
+
+
+
     public function edit($id)
     {
         $data['jadwal'] = $this->jadwalpraktikModel->find($id);
@@ -90,5 +97,6 @@ class JadwalController extends BaseController
 
         // Redirect ke halaman index atau halaman lain yang sesuai
         return redirect()->to(base_url('/practice'))->with('success', 'Schedule updated successfully');
+
     }
 }

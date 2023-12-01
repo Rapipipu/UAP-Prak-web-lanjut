@@ -14,10 +14,11 @@
   </thead>
   <tbody>
   <?php
+    $row = 1;
     foreach ($jadwall as $jadwal){
     ?>
     <tr>
-      <th><?=$jadwal['id']?></th>
+      <th><?=$row++?></th>  
       <td><?=$jadwal['nama']?></td>
       <td><?=$jadwal['jam']?></td>
       <?php if(in_groups('admin') || in_groups('pegawai')) : ?>
