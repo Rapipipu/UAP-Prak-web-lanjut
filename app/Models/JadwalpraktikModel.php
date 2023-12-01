@@ -46,4 +46,14 @@ class JadwalpraktikModel extends Model
     {
          return $this->delete( $id);
     }
+    public function saveJadwal($data){
+        $this->insert($data);
+    }
+
+    public function updateJadwal($data, $id)
+    {
+        return $this->update($id, $data);
+    }
+    
+
 }
