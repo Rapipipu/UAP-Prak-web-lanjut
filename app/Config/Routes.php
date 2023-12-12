@@ -10,6 +10,7 @@ use App\Controllers\PasienController;
 use App\Controllers\TerapisController;
 use App\Controllers\JadwalController;
 use App\Controllers\UserController;
+use App\Controllers\AdminController;
 use Config\Auth;
 
 /**
@@ -54,6 +55,7 @@ $routes->get('/reservasi/create', [ReservasiController::class, 'create']);
 $routes->post('/reservasi/store', [ReservasiController::class, 'store']);
 $routes->get('/reservasi/cancel/(:any)', [ReservasiController::class, 'cancel']);
 $routes->get('/reservasi/complete/(:any)', [ReservasiController::class, 'complete']);
+$routes->get('/reservasi/riwayat', [ReservasiController::class, 'riwayat']);
 
 $routes->get('/layanan', [LayananController::class, 'index']);
 $routes->get('/layanan/create', [LayananController::class, 'create']);
@@ -61,6 +63,9 @@ $routes->post('/layanan/store', [LayananController::class, 'store']);
 $routes->put('/layanan/edit/(:any)',  [LayananController::class, 'updateLayanan']);
 $routes->get('/layanan/edit/(:any)', [LayananController::class, 'editLayanan']);
 $routes->get('/layanan/delete/(:any)', [LayananController::class, 'deleteLayanan']);
+
+$routes->get('/admin', [AdminController::class, 'index']);
+$routes->get('/admin/turnpasien/(:any)', [AdminController::class, 'turnPasien']);
 
 $routes->get('/pasien', [PasienController::class, 'index']);
 $routes->get('/pasien/create', [PasienController::class, 'createPasien']);
@@ -87,6 +92,7 @@ $routes->get('/pegawai/turnpasien/(:any)', [PegawaiController::class, 'turnPasie
 $routes->get('/jadwal', [JadwalController::class, 'index']);
 $routes->get('/jadwal/create', [JadwalController::class, 'create']);
 $routes->post('/jadwal/store', [JadwalController::class, 'store']);
+$routes->get('/jadwal/delete/(:any)', [JadwalController::class, 'delete']);
 $routes->group('jadwal', ['namespace' => 'App\Controllers'], function ($routes) {
     $routes->get('create', 'JadwalController::create');
     $routes->post('store', 'JadwalController::store');
@@ -97,7 +103,7 @@ $routes->get('practice', 'JadwalController::index');
 
 
 
-$routes->get('/jadwal/delete/(:any)', [JadwalController::class, 'delete']); //buatan juan
+ //buatan juan
 
 // $routes->get('/admin/dashboard', [DashboardController::class, 'index']);
 // $routes->get('/admin/reservasi', [ReservasiController::class, 'index']);
