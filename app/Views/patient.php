@@ -3,6 +3,11 @@
 <?= $this->section('content')?>
 <section>
 <div class="d-flex flex-column" style="position:fixed;top:10%;width:60%;left:30%;background:white;padding:50px;border-radius:20px;">
+<?php if (session('validation') && session('validation')->hasError('delete_failed')) : ?>
+            <div class="alert alert-danger">
+              <?= session('validation')->getError('delete_failed'); ?>
+            </div>
+          <?php endif; ?>
    <table class="table table-borderless table-responsive-xl">
   <thead>
     <tr>

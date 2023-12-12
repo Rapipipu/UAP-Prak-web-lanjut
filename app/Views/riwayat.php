@@ -8,11 +8,10 @@
     <tr>
       <th scope="col">ID</th>
       <th scope="col">Nama</th>
-      <th scope="col">Telefon</th>
       <th scope="col">Layanan</th>
       <th scope="col">Jadwal</th>
       <th scope="col">Tanggal</th>
-      <th scope="col"></th>
+      <th scope="col">Status</th>
     </tr>
   </thead>
   <tbody>
@@ -22,15 +21,10 @@
     <tr>
       <th><?=$reservasi['id']?></th>
       <td><?=$reservasi['username']?></td>
-      <td><?=$reservasi['telefon']?></td>
       <td><?=$reservasi['layanan']?></td>
       <td><?=$reservasi['jam']?></td>
       <td><?=$reservasi['tanggal']?></td>
-      <td class="btn-custom">
-        <a href="<?= base_url('/reservasi/cancel/'.$reservasi['id']) ?>" >Cancel</a>
-        <a href="<?= base_url('/reservasi/complete/'.$reservasi['id']) ?>" >Complete</a>
-        <a target="blank" href="https://wa.me/<?=$reservasi['telefon']?>?text=Reservasi%20anda%20sudah%20dekat,%20tolong%20datang%20tepat%20waktu,%20terima%20kasih"><img width="25px" src="<?=base_url('/assets/img/WhatsApp.webp')?>"></a>
-      </td>
+      <td><?=$reservasi['status']?></td>
     </tr>
     <?php
     }

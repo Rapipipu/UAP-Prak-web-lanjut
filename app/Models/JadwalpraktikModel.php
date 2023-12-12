@@ -39,12 +39,13 @@ class JadwalpraktikModel extends Model
     protected $afterDelete    = [];
 
     public function getJadwal(){
-        return $this->select('jadwalpraktik.*, terapis.*')
-        ->join('terapis', 'terapis.id=jadwalpraktik.id')->findAll();    
+        return $this->select('jadwalpraktik.*, terapis.nama')
+        ->join('terapis', 'terapis.id=jadwalpraktik.id_terapis')
+        ->orderBy('jadwalpraktik.id', 'ASC')->findAll();    
     }
     public function deleteJadwal($id)
     {
-         return $this->delete( $id);
+         return $this->delete($id);
     }
     public function saveJadwal($data){
         $this->insert($data);

@@ -43,7 +43,8 @@ class ReservasiModel extends Model
         ->join('jadwalpraktik', 'jadwalpraktik.id=reservasi.id_jadwal')
         ->join('layanan', 'layanan.id=reservasi.id_layanan')
         ->join('users', 'users.id=reservasi.id_user')
-        ->where('reservasi.status', 'berjalan')->findAll();    
+        ->where('reservasi.status', 'berjalan')
+        ->orderBy('reservasi.id', 'ASC')->findAll();    
     }
 
     public function saveReservasi($data)
@@ -53,11 +54,20 @@ class ReservasiModel extends Model
 
     public function cancelReservasi($id)
     {
-         return $this->delete( $id);
+        return $this->set('status', 'cancel')->where('id', $id)->update();
     }
 
     public function completeReservasi($id)
     {
          return $this->set('status', 'selesai')->where('id', $id)->update();
+    }
+
+    public function getRiwayat($id){
+        return $this->select('layanan.layanan, users.username, users.telefon, jadwalpraktik.jam, reservasi.*')
+        ->join('jadwalpraktik', 'jadwalpraktik.id=reservasi.id_jadwal')
+        ->join('layanan', 'layanan.id=reservasi.id_layanan')
+        ->join('users', 'users.id=reservasi.id_user')
+        ->where('id_user', $id)
+        ->orderBy('reservasi.id', 'ASC')->findAll();    
     }
 }

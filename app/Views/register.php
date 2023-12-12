@@ -42,36 +42,36 @@
                     <?= csrf_field() ?>
                     <label>Email</label>
                     <div class="mb-3">
-                      <input type="email" class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Username" aria-label="Email" aria-describedby="email-addon" name="email">
+                      <input type="email" class="form-control <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Username" aria-label="Email" aria-describedby="email-addon" name="email" required>
                     </div> 
 
                     <label>Username</label>
                     <div class="mb-3">
-                      <input type="text" class="form-control <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>" placeholder="Username" aria-label="Email" aria-describedby="email-addon" name="username">
+                      <input type="text" class="form-control <?php if (session('errors.username')) : ?>is-invalid<?php endif ?>" name="username" placeholder="<?=lang('Auth.username')?>" value="<?= old('username') ?>" placeholder="Username" aria-label="Email" aria-describedby="email-addon" name="username" required>
                     </div> 
                     
                     <label>Enter your password</label>
                     <div class="mb-3">
-                      <input type="password" class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password">
+                      <input type="password" class="form-control <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="password" required>
                     </div>
 
                     <label>Confirm Password</label>
                     <div class="mb-3">
-                      <input type="password" class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="pass_confirm">
+                      <input type="password" class="form-control <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="pass_confirm" required> 
                     </div>
 
                     <label>Enter your age</label>
                     <div class="mb-3">
-                      <input type="text" class="form-control " placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="umur">
+                      <input type="text" class="form-control " placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="umur" required>
                     </div>
 
                     <label>Contact</label>
                     <div class="mb-3">
-                      <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="telefon">
+                      <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="telefon" required>
                     </div>
 
                     <div class="mb-3">
-                      <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="poin" value="0" hidden>
+                      <input type="text" class="form-control" placeholder="Password" aria-label="Password" aria-describedby="password-addon" name="poin" value="0" hidden required>
                     </div>
 
                     <div class="text-center">

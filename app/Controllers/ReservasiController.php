@@ -63,7 +63,7 @@ class ReservasiController extends BaseController
 
         $this->usersModel->tambahPoin($id, $poin);
 
-        return redirect()->to(base_url('/reservasi/create'));
+        return redirect()->to(base_url('/reservasi/riwayat'));
     }
 
     public function cancel($id)
@@ -84,5 +84,18 @@ class ReservasiController extends BaseController
 
         return redirect()->to('/reservasi')->with('success', 'Service updated successfully');
         }
+    }
+
+    public function riwayat()
+    {   
+    
+
+        $data = [
+            'reservasii' => $this->reservasiModel->getRiwayat(user_id()),
+        ];
+
+
+        return view('riwayat', $data);
+        
     }
 }

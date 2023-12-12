@@ -66,6 +66,13 @@ class UsersModel extends Model
         ->where('group_id', '3')->countAllResults();  
     }
 
+    public function getAdmin(){
+        return $this->select(' users.*')
+        ->join('auth_groups_users', 'auth_groups_users.user_id=users.id')
+        ->join('auth_groups', 'auth_groups.id=auth_groups_users.group_id')
+        ->where('group_id', '1')->findAll();  
+    }
+
     public function updateTerapis($data, $id)
     {
         return $this->update($id, $data);

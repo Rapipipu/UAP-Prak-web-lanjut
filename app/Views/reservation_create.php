@@ -12,8 +12,7 @@
 
         <div class="form-group">
           <label for="service">Service</label>
-          <select class="form-select" aria-label="Default select example" name="layanan">
-            <option selected>Choose Service</option>
+          <select class="form-select" aria-label="Default select example" name="layanan" required>
             <?php
             foreach ($layanann as $layanan){
             ?>
@@ -26,8 +25,7 @@
 
         <div class="form-group">
           <label for="schedule">Schedule</label>
-          <select class="form-select" aria-label="Default select example" name="jadwal">
-            <option selected>Choose Practice Schedule</option>
+          <select class="form-select" aria-label="Default select example" name="jadwal" required>
             <?php
             foreach ($jadwall as $jadwal){
             ?>

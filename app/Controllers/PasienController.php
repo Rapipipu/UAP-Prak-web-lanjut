@@ -19,20 +19,17 @@ class PasienController extends BaseController
 
     public function turnAdmin($id){
 
-        $result = $this->groupModel->turnAdmin($id);
+       $this->groupModel->turnAdmin($id);
 
-        if ($result) {
         return redirect()->to('/pasien');
-        }
+
     }
 
     public function turnPegawai($id){
         
-        $result = $this->groupModel->turnPegawai($id);
+        $this->groupModel->turnPegawai($id);
 
-        if ($result) {
         return redirect()->to('/pasien');
-        }
     }
 
     public function index()
@@ -78,7 +75,6 @@ class PasienController extends BaseController
             'username' => $this->request->getPost('username'),
             'email' => $this->request->getPost('email'),
             'poin' => $this->request->getPost('poin'),
-            
             'umur' => $this->request->getPost('umur'),
             'telefon' => $this->request->getPost('telefon')
         ];
@@ -93,12 +89,18 @@ class PasienController extends BaseController
 
     public function deletePasien($id)
     {   
-    
-        $result = $this->usersModel->deletePasien($id);
-        if ($result) {
-
-        return redirect()->to('/pasien')->with('success', 'Service updated successfully');
+        try {
+            $this->usersModel->deletePasien($id);
+            return redirect()->to('/pasien')->with('success', 'Service updated successfully');
+        } catch (\CodeIgniter\Database\Exceptions\DatabaseException $e) {
+            log_message('error', 'Database error: ' . $e->getMessage());
+            $validation = service('validation');
+            $validation->setError('delete_failed', 'Gagal menghapus data');
+            return redirect()->back()->with('validation', $validation);
         }
+
+        
+        
     }
 
 }

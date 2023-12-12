@@ -28,20 +28,9 @@ class JadwalController extends BaseController
 
     public function store()
     {
-        // Validasi formulir untuk penyimpanan baru
-        $validationRules = [
-            'nama' => 'required',
-            'jam' => 'required',
-        ];
-
-        if (!$this->validate($validationRules)) {
-            $validation = \Config\Services::validation();
-            return redirect()->to(base_url('/jadwal/create'))->withInput()->with('validation', $validation);
-        }
-
         // Simpan jadwal praktik baru
-        $this->jadwalpraktikModel->save([
-            'nama' => $this->request->getVar('nama'),
+        $this->jadwalpraktikModel->saveJadwal([
+            'id_terapis' => $this->request->getVar('id_terapis'),
             'jam' => $this->request->getVar('jam'),
         ]);
 
@@ -58,10 +47,10 @@ class JadwalController extends BaseController
     }
 
     public function delete($id){
-        //dd($id);
-        $this->jadwalpraktikModel->deleteJadwal($id);
-        return redirect()->to(base_url('/jadwal'));
+        $result = $this->jadwalpraktikModel->deleteJadwal($id);
 
+            return redirect()->to(base_url('/jadwal'));
+    }
 
 
     public function edit($id)

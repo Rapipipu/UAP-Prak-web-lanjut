@@ -60,7 +60,7 @@
 <!-- BEGIN: Main Menu-->
 <div class="d-flex flex-column" data-scroll-to-active="true" style="  height:100vh;width:20vw;">
   <div class="d-flex justify-content-center align-items-center" style="width:100%;height:30%;">
-    <img style="height:20vh;width:20vh;border:1px solid black;" class="img rounded-circle"  src="/assets/img/1.png" />
+    <img style="height:20vh;width:20vh;border:1px solid black;" class="img rounded-circle"  src="/assets/img/armiana.png" />
   </div>
   <?php if(in_groups('admin')) : ?>
   <div class="menu-item d-flex flex-column align-items-center justify-content-around" style="width:100%;height:70%;">
@@ -76,6 +76,10 @@
             <li >
                 <a href="<?=base_url('/layanan')?>" class="nav-link text-truncate">
                     <i class="fs-5 bi-table"></i><span class="ms-1 d-none d-sm-inline" ><h4 style="color:#9F481B; margin-top:35px;">Service</h4></span></a>
+            </li>
+            <li>
+                <a href="<?=base_url('/admin')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Admin</h4></span> </a>
             </li>
             <li>
                 <a href="<?=base_url('/pegawai')?>" class="nav-link text-truncate">
@@ -148,6 +152,10 @@
             <li>
                 <a href="<?=base_url('/reservasi/create')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
                     <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">Reservation</h4></span> </a>
+            </li>
+            <li>
+                <a href="<?=base_url('/reservasi/riwayat')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
+                    <i class="fs-5 bi-speedometer2"></i><span class="ms-1 d-none d-sm-inline"><h4 style="color:#9F481B; margin-top:35px;">History</h4></span> </a>
             </li>
             <li>
                 <a href="<?=base_url('/layanan')?>" data-bs-toggle="collapse" class="nav-link text-truncate">
